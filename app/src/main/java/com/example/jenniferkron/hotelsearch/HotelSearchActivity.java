@@ -11,9 +11,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.jenniferkron.hotelsearch.data.Hotel;
 import com.example.jenniferkron.hotelsearch.data.HotelSearchAPI;
+import com.example.jenniferkron.hotelsearch.util.DataUtil;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HotelSearchActivity extends AppCompatActivity {
 
@@ -71,18 +74,16 @@ public class HotelSearchActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String jsonResult) {
+            List<Hotel> hotelsFromJson = DataUtil.getHotelsFromJson(jsonResult);
             TextView result = (TextView) findViewById(R.id.hotelSearchResponse);
             loadingProgress.setVisibility(View.INVISIBLE);
-            result.setText(jsonResult);
+            result.setText(hotelsFromJson.get(0).hotelName);
         }
 
         @Override
         protected void onPreExecute() {
             loadingProgress.setVisibility(View.VISIBLE);
         }
-
-
-
 
 
     }
