@@ -6,4 +6,12 @@
     <string name="sort_by_rating">Sort by rating</string>
     <string name="star_rating_content_description">star rating</string>
     <string name="hotel_image_content_description">hotel image</string>
+    <string name="five_stars">&#xf005; &#xf005; &#xf005; &#xf005; &#xf005; </string>
+    <string name="four_stars">&#xf005; &#xf005; &#xf005; &#xf005; </string>
+    <string name="three_stars">&#xf005; &#xf005; </string>
+    <string name="two_stars">&#xf005; &#xf005; </string>
+    <string name="two_half">&#xf005; &#xf005; &#xf123; </string>
+    <string name="three_half">&#xf005; &#xf005; &#xf005; &#xf123; </string>
+    <string name="four_half">&#xf005; &#xf005; &#xf005; &#xf005; &#xf123; </string>
+    <string name="no_rating">No Rating</string>
 </resources>

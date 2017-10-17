@@ -1,5 +1,6 @@
 package com.example.jenniferkron.hotelsearch;
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.jenniferkron.hotelsearch.data.Hotel;
 import com.example.jenniferkron.hotelsearch.data.HotelSearchAPI;
 import com.example.jenniferkron.hotelsearch.util.DataUtil;
+import com.example.jenniferkron.hotelsearch.util.FontManager;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -40,14 +43,13 @@ public class HotelSearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         configureImageLoader();
 
         setContentView(R.layout.activity_hotel_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         loadingProgress = (ProgressBar) findViewById(R.id.loading);
-        this.initializeViews();
 
+        this.initializeViews();
         setSupportActionBar(toolbar);
         new HotelQueryTask().execute();
 
@@ -98,7 +100,7 @@ public class HotelSearchActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public class HotelQueryTask extends AsyncTask<Void, Void, String> {
+    private class HotelQueryTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
@@ -121,6 +123,7 @@ public class HotelSearchActivity extends AppCompatActivity {
             loadingProgress.setVisibility(View.INVISIBLE);
             adapter = new HotelAdapter((ArrayList<Hotel>) hotelsFromJson, HotelSearchActivity.this);
             rvHotels.setAdapter(adapter);
+
         }
 
         @Override
@@ -134,31 +137,31 @@ public class HotelSearchActivity extends AppCompatActivity {
 
     private void sortByHotelStarRating() {
         if (ascending) {
-            updateView(hotelsFromJson, Hotel.compareRatingAscending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.compareRatingAscending, (ArrayList<Hotel>) hotelsFromJson);
         } else {
-            updateView(hotelsFromJson, Hotel.compareRatingDescending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.compareRatingDescending, (ArrayList<Hotel>) hotelsFromJson);
         }
     }
 
     private void sortByHotelPrice() {
         if (ascending) {
-            updateView(hotelsFromJson, Hotel.comparePriceAscending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.comparePriceAscending, (ArrayList<Hotel>) hotelsFromJson);
         } else {
-            updateView(hotelsFromJson, Hotel.comparePriceDescending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.comparePriceDescending, (ArrayList<Hotel>) hotelsFromJson);
         }
     }
 
     private void sortByHotelName() {
         if (ascending) {
-            updateView(hotelsFromJson, Hotel.compareNamesAscending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.compareNamesAscending, (ArrayList<Hotel>) hotelsFromJson);
         } else {
-            updateView(hotelsFromJson, Hotel.compareNamesDescending, (ArrayList<Hotel>) hotelsFromJson, adapter);
+            updateView(hotelsFromJson, Hotel.compareNamesDescending, (ArrayList<Hotel>) hotelsFromJson);
         }
     }
 
-    private void updateView(List<Hotel> hotelsFromJson, Comparator<Hotel> compareNamesAscending, ArrayList<Hotel> hotelsFromJson2, HotelAdapter adapter) {
+    private void updateView(List<Hotel> hotelsFromJson, Comparator<Hotel> compareNamesAscending, ArrayList<Hotel> hotels) {
         Collections.sort(hotelsFromJson, compareNamesAscending);
-        adapter = new HotelAdapter(hotelsFromJson2, HotelSearchActivity.this);
+        HotelAdapter adapter = new HotelAdapter(hotels, HotelSearchActivity.this);
         rvHotels.setAdapter(adapter);
         ascending = !ascending;
     }

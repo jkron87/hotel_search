@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class HotelSearchAPI {
     public String getSearchResults() throws IOException, InterruptedException {
+        //Mimicking API call latency
         Thread.sleep(1000);
         return "{\n" +
                 "   \"hotels\":[\n" +

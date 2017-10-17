@@ -25,6 +25,7 @@
 
         <TextView
             android:id="@+id/hotelName"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -45,15 +46,16 @@
 
     <TextView
         android:id="@+id/stars"
+        android:text="@string/five_stars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/hotelImage"
         android:layout_alignStart="@+id/hotelImage"
-        android:adjustViewBounds="true"
         android:contentDescription="@string/star_rating_content_description"
         android:cropToPadding="true"
         android:textColor="@android:color/white"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textSize="@dimen/star_rating" />
 
 
 </RelativeLayout>
