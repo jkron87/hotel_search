@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignStart="@+id/hotelImage"
-        android:background="#60000000"
+        android:background="@color/hotelHeaderBackground"
         android:orientation="vertical">
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/mainText"
             android:textSize="@dimen/hotelName" />
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_weight="25"
             android:paddingBottom="10dp"
             android:paddingHorizontal="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/mainText"
             android:textSize="@dimen/hotelPrice" />
 
     </LinearLayout>
@@ -53,7 +53,7 @@
         android:layout_alignStart="@+id/hotelImage"
         android:contentDescription="@string/star_rating_content_description"
         android:cropToPadding="true"
-        android:textColor="@android:color/white"
+        android:textColor="@color/mainText"
         android:padding="10dp"
         android:textSize="@dimen/star_rating" />
 
