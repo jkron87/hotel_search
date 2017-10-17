@@ -3,6 +3,7 @@ package com.example.jenniferkron.hotelsearch;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -74,31 +75,22 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
             setHotelImage(hotel);
         }
 
-        private int determineStars(Hotel hotel) {
-            int stars = R.string.no_rating;
-            if (hotel.starRating.equals("5.0")) {
-                stars = R.string.five_stars;
+        private String determineStars(Hotel hotel) {
+
+            Resources res = context.getResources();
+            String starRating = "";
+            String fullStar = res.getString(R.string.star);
+            String halfStar = res.getString(R.string.half_star);
+            int rating = DataUtil.stringRatingToInteger(hotel.starRating);
+            for (int i = 10; i <= rating; i += 10) {
+                starRating = starRating.concat(fullStar);
             }
-            if (hotel.starRating.equals("4.5")) {
-                stars = R.string.four_half;
+            if (rating % 10 != 0) {
+                starRating = starRating.concat(halfStar);
             }
-            if (hotel.starRating.equals("4.0")) {
-                stars = R.string.four_stars;
-            }
-            if (hotel.starRating.equals("3.5")) {
-                stars = R.string.three_half;
-            }
-            if (hotel.starRating.equals("3.0")) {
-                stars = R.string.three_stars;
-            }
-            if (hotel.starRating.equals("2.5")) {
-                stars = R.string.two_half;
-            }
-            if (hotel.starRating.equals("2.0")) {
-                stars = R.string.two_stars;
-            }
-            return stars;
+            return starRating;
         }
+
 
         private void setHotelImage(Hotel hotel) {
             ImageLoader imageLoader = ImageLoader.getInstance();
