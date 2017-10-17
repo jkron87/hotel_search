@@ -1,3 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="hotel_price">18sp</dimen>
+    <dimen name="star_rating">18sp</dimen>
+    <dimen name="hotelName">20sp</dimen>
+    <dimen name="hotelPrice">20sp</dimen>
+    <dimen name="stars">20sp</dimen>
 </resources>

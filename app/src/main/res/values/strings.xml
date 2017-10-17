@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Hotel Search</string>
     <string name="action_settings">Settings</string>
+    <string name="sort_by_hotel_name">Sort by hotel name</string>
+    <string name="sort_by_price">Sort by price</string>
+    <string name="sort_by_rating">Sort by rating</string>
+    <string name="star_rating_content_description">star rating</string>
+    <string name="hotel_image_content_description">hotel image</string>
 </resources>

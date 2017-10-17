@@ -9,15 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class DataUtil {
     public static ArrayList<Hotel> getHotelsFromJson(String json) {
-        final String ID = "id";
-        final String HOTEL_NAME = "hotelName";
-        final String HOTEL_IMAGE_URL = "hotelImageUrl";
-        final String PRICE = "price";
-        final String STAR_RATING = "starRating";
         final String HOTELS = "hotels";
 
         ArrayList<Hotel> hotels = new ArrayList<Hotel>();
@@ -33,5 +30,21 @@ public class DataUtil {
         }
 
         return hotels;
+    }
+
+    public static String roundPrice(String price) {
+        String dollarSign = "$";
+        BigDecimal value = new BigDecimal(price.substring(1, price.length()));
+        return dollarSign.concat(value.setScale(0, RoundingMode.HALF_UP).toString());
+    }
+
+    public static int stringNumberToRoundedInteger(String number) {
+        BigDecimal value = new BigDecimal(number.substring(1, number.length()));
+        return value.setScale(0, RoundingMode.FLOOR).intValue();
+    }
+
+    public static int stringRatingToInteger(String number) {
+        String value = number.replace(".", "");
+        return Integer.valueOf(value);
     }
 }

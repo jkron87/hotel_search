@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.jenniferkron.hotelsearch.HotelSearchActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_sort_name"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/sort_by_hotel_name"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sort_price"
+        android:orderInCategory="200"
+        android:title="@string/sort_by_price"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_rating"
+        android:orderInCategory="300"
+        android:title="@string/sort_by_rating"
         app:showAsAction="never" />
 </menu>
