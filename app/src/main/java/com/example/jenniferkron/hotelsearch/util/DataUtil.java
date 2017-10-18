@@ -2,6 +2,9 @@ package com.example.jenniferkron.hotelsearch.util;
 
 import com.example.jenniferkron.hotelsearch.data.Hotel;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 
@@ -15,12 +18,13 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class DataUtil {
-    public static ArrayList<Hotel> getHotelsFromJson(String json) throws JSONException {
+    public static ArrayList<Hotel> getHotelsFromJson(String json) {
         final String HOTELS = "hotels";
 
         ArrayList<Hotel> hotels;
-        JSONObject jsonHotels = new JSONObject(json);
-        JSONArray arrayHotels = jsonHotels.getJSONArray(HOTELS);
+        JsonParser jsonParser = new JsonParser();
+        JsonObject jsonHotels = (JsonObject) jsonParser.parse(json);
+        JsonArray arrayHotels = jsonHotels.getAsJsonArray(HOTELS);
         Type listType = new TypeToken<ArrayList<Hotel>>() {
         }.getType();
 
@@ -32,7 +36,7 @@ public class DataUtil {
     public static String roundPrice(String price) {
         String dollarSign = "$";
         BigDecimal value = new BigDecimal(price.substring(1, price.length()));
-        return dollarSign.concat(value.setScale(0, RoundingMode.HALF_UP).toString());
+        return dollarSign.concat(value.setScale(0, RoundingMode.FLOOR).toString());
     }
 
     public static int stringNumberToRoundedInteger(String number) {

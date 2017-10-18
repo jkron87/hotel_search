@@ -121,11 +121,7 @@ public class HotelSearchActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String jsonResult) {
 
-            try {
-                hotelsFromJson = DataUtil.getHotelsFromJson(jsonResult);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            hotelsFromJson = DataUtil.getHotelsFromJson(jsonResult);
             loadingProgress.setVisibility(View.INVISIBLE);
             adapter = new HotelAdapter((ArrayList<Hotel>) hotelsFromJson, HotelSearchActivity.this);
             rvHotels.setAdapter(adapter);
