@@ -3,7 +3,6 @@ package com.example.jenniferkron.hotelsearch.data;
 
 import com.example.jenniferkron.hotelsearch.util.DataUtil;
 
-import java.io.Serializable;
 import java.util.Comparator;
 
 public class Hotel {

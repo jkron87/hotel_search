@@ -22,8 +22,8 @@ import java.util.ArrayList;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder> {
 
-    ArrayList<Hotel> hotels;
-    Context context;
+    private ArrayList<Hotel> hotels;
+    private Context context;
 
     public HotelAdapter(ArrayList<Hotel> hotels, Activity context) {
         this.hotels = hotels;
@@ -51,10 +51,10 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
     public class HotelViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView hotelName;
-        public TextView price;
-        public TextView stars;
-        public ImageView hotelImage;
+        private TextView hotelName;
+        private TextView price;
+        private TextView stars;
+        private ImageView hotelImage;
 
         public HotelViewHolder(View itemView) {
             super(itemView);

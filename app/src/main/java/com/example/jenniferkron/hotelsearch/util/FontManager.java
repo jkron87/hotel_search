@@ -3,11 +3,6 @@ package com.example.jenniferkron.hotelsearch.util;
 import android.content.Context;
 import android.graphics.Typeface;
 
-/**
- * Created by jenniferkron on 10/16/17.
- */
-
-
 public class FontManager {
     public static final String ROOT = "fonts/",
             FONTAWESOME = ROOT + "fontawesome-webfont.ttf";

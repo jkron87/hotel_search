@@ -1,6 +1,5 @@
 package com.example.jenniferkron.hotelsearch;
 
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,20 +11,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.example.jenniferkron.hotelsearch.data.Hotel;
 import com.example.jenniferkron.hotelsearch.data.HotelSearchAPI;
 import com.example.jenniferkron.hotelsearch.util.DataUtil;
-import com.example.jenniferkron.hotelsearch.util.FontManager;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-
-import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
