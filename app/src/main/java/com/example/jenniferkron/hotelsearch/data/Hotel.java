@@ -1,11 +1,12 @@
 package com.example.jenniferkron.hotelsearch.data;
 
+
 import com.example.jenniferkron.hotelsearch.util.DataUtil;
 
 import java.io.Serializable;
 import java.util.Comparator;
 
-public class Hotel implements Serializable {
+public class Hotel {
     public String id;
     public String hotelName;
     public String hotelImageURL;
@@ -76,5 +77,30 @@ public class Hotel implements Serializable {
         }
     };
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Hotel hotel = (Hotel) o;
+
+        if (id != null ? !id.equals(hotel.id) : hotel.id != null) return false;
+        if (hotelName != null ? !hotelName.equals(hotel.hotelName) : hotel.hotelName != null)
+            return false;
+        if (hotelImageURL != null ? !hotelImageURL.equals(hotel.hotelImageURL) : hotel.hotelImageURL != null)
+            return false;
+        if (price != null ? !price.equals(hotel.price) : hotel.price != null) return false;
+        return starRating != null ? starRating.equals(hotel.starRating) : hotel.starRating == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (hotelName != null ? hotelName.hashCode() : 0);
+        result = 31 * result + (hotelImageURL != null ? hotelImageURL.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (starRating != null ? starRating.hashCode() : 0);
+        return result;
+    }
 }

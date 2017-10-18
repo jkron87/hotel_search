@@ -76,7 +76,6 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         }
 
         private String determineStars(Hotel hotel) {
-
             Resources res = context.getResources();
             String starRating = "";
             String fullStar = res.getString(R.string.star);

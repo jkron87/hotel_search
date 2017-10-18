@@ -25,6 +25,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
+import org.json.JSONException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -119,7 +121,11 @@ public class HotelSearchActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String jsonResult) {
 
-            hotelsFromJson = DataUtil.getHotelsFromJson(jsonResult);
+            try {
+                hotelsFromJson = DataUtil.getHotelsFromJson(jsonResult);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             loadingProgress.setVisibility(View.INVISIBLE);
             adapter = new HotelAdapter((ArrayList<Hotel>) hotelsFromJson, HotelSearchActivity.this);
             rvHotels.setAdapter(adapter);
@@ -159,8 +165,8 @@ public class HotelSearchActivity extends AppCompatActivity {
         }
     }
 
-    private void updateView(List<Hotel> hotelsFromJson, Comparator<Hotel> compareNamesAscending, ArrayList<Hotel> hotels) {
-        Collections.sort(hotelsFromJson, compareNamesAscending);
+    private void updateView(List<Hotel> hotelsFromJson, Comparator<Hotel> comparison, ArrayList<Hotel> hotels) {
+        Collections.sort(hotelsFromJson, comparison);
         HotelAdapter adapter = new HotelAdapter(hotels, HotelSearchActivity.this);
         rvHotels.setAdapter(adapter);
         ascending = !ascending;
