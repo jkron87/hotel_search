@@ -3,6 +3,7 @@ package com.example.jenniferkron.hotelsearch;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
@@ -49,7 +50,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         return hotels.size();
     }
 
-    public class HotelViewHolder extends RecyclerView.ViewHolder {
+
+    public class HotelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView hotelName;
         private TextView price;
@@ -62,6 +64,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
             price = itemView.findViewById(R.id.hotelPrice);
             stars = itemView.findViewById(R.id.stars);
             hotelImage = itemView.findViewById(R.id.hotelImage);
+            itemView.setOnClickListener(this);
 
         }
 
@@ -103,5 +106,14 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         }
 
 
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Hotel selectedHotel = hotels.get(position);
+            Intent intent = new Intent(view.getContext(), HotelDetail.class);
+            intent.putExtra("Hotel", selectedHotel);
+            view.getContext().startActivity(intent);
+
+        }
     }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="Hotel"
+            type="com.example.jenniferkron.hotelsearch.data.Hotel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.jenniferkron.hotelsearch.HotelDetail"
+        tools:showIn="@layout/activity_hotel_detail">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="212dp"
+            android:layout_height="155dp"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hotelRating"
+            app:srcCompat="@drawable/hotel" />
+
+        <TextView
+            android:id="@+id/hotelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:text="@{Hotel.hotelName}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hotelRating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:text="@{Hotel.starRating}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hotelName" />
+
+        <TextView
+            android:id="@+id/hotelPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:text="@{Hotel.price}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/hotelRating" />
+
+        <TextView
+            android:id="@+id/hotelDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:text="@{Hotel.description}"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/hotelDiscountMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginStart="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:text="@{Hotel.discountMessage}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/hotelPrice" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

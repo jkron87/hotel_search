@@ -1,5 +1,6 @@
 package com.example.jenniferkron.hotelsearch;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,13 +36,14 @@ public class HotelSearchActivity extends AppCompatActivity {
     List<Hotel> hotelsFromJson;
     HotelAdapter adapter;
     boolean ascending = true;
+    public Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         configureImageLoader();
-
+        context = getApplicationContext();
         setContentView(R.layout.activity_hotel_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         loadingProgress = (ProgressBar) findViewById(R.id.loading);

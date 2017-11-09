@@ -9,4 +9,5 @@
     <string name="star">&#xf005; </string>
     <string name="half_star">&#xf123; </string>
     <string name="no_rating">No Rating</string>
+    <string name="title_activity_hotel_detail">HotelDetail</string>
 </resources>

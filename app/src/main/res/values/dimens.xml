@@ -6,4 +6,5 @@
     <dimen name="hotelName">24sp</dimen>
     <dimen name="hotelPrice">20sp</dimen>
     <dimen name="stars">20sp</dimen>
+    <dimen name="layoutMargin">16dp</dimen>
 </resources>

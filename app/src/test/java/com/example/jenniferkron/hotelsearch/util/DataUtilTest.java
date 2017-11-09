@@ -59,8 +59,8 @@ public class DataUtilTest {
         String searchResults = hotelSearchAPI.getSearchResults();
         ArrayList<Hotel> actualHotelsFromJson = DataUtil.getHotelsFromJson(searchResults);
 
-        Hotel hotel1 = new Hotel(null, "Freehand Chicago", "https://media.expedia.com/hotels/10000000/9420000/9418300/9418281/9418281_72_d.jpg", "$32.45", "3.0");
-        Hotel hotel2 = new Hotel(null, "Raffaello Hotel", "https://media.expedia.com/hotels/1000000/10000/6500/6420/6420_101_d.jpg", "$132.20", "4.0");
+        Hotel hotel1 = new Hotel(null, "Freehand Chicago", "https://media.expedia.com/hotels/10000000/9420000/9418300/9418281/9418281_72_d.jpg", "$32.45", "3.0", null, null, null);
+        Hotel hotel2 = new Hotel(null, "Raffaello Hotel", "https://media.expedia.com/hotels/1000000/10000/6500/6420/6420_101_d.jpg", "$132.20", "4.0", null, null, null);
 
         List<Hotel> expectedHotelsFromJson = Arrays.asList(hotel1, hotel2);
 
